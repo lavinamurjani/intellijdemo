@@ -38,6 +38,7 @@ jobs:
         with:
           # Upload entire repository
           path: '.'
+          destination_dir: coverage/v1
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

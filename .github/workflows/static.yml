@@ -39,8 +39,8 @@ jobs:
         run: |
           COVERAGE=$(cat coverage.txt)
           sed -i "s/Coverage: [0-9]\+%/Coverage: ${COVERAGE}%/" README.md
-          git config --global user.name 'lavinamurjani'
-          git config --global user.email 'laveenamurjani789@gmail.com'
+          git config --global user.name '41898282+github-actions[bot]@users.noreply.github.com'
+          git config --global user.email 'github-actions[bot]'
           git add README.md
           git commit -m "Update coverage to ${COVERAGE}%"
           git push   

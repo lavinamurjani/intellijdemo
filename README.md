@@ -1,1 +1,1 @@
-Coverage: 80%%
+Coverage: 80%%%

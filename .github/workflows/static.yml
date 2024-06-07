@@ -35,12 +35,21 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Create Directory
         run: mkdir -p coverage/v1  
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: '.'
+      - name: Update README with coverage
+        run: |
+          COVERAGE=$(cat coverage.txt)
+          sed -i "s/Coverage: [0-9]\+%/Coverage: ${COVERAGE}%/" README.md
+          git config --global user.name 'lavinamurjani'
+          git config --global user.email 'laveenamurjani789@gmail.com'
+          git add README.md
+          git commit -m "Update coverage to ${COVERAGE}%"
+          git push   
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     # Upload entire repository
+      #     path: '.'
           
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # - name: Deploy to GitHub Pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v4
